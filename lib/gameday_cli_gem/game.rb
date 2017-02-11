@@ -15,6 +15,10 @@ class GamedayCliGem::Game
     @@all 
   end
 
+  def self.find(index)
+    self.all[index-1]
+  end
+
   # def self.today 
   #   #should return all of today's games in an array
   #   game_1 = self.new
