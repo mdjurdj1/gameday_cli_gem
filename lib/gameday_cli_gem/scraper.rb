@@ -7,15 +7,15 @@ class GamedayCliGem::Scraper
   end 
 
   def scrape_games_index 
-    self.get_page.css("div.score-tile-large")
+    self.get_page.css("div.game")
+    binding.pry
   end 
 
   def make_games
-    #team1 = self.get_page.css("div.score-tile-large").first.css("a").children.css("span").children[0].text
-    #team1_record = self.get_page.css("div.score-tile-large").first.css("a").children.css("span").children[1].text.gsub("(", "")
-    #team2 = self.get_page.css("div.score-tile-large").first.css("a").children.css("span").children[4].text
-    #team2_record = self.get_page.css("div.score-tile-large").first.css("a").children.css("span").children[5].text.gsub("(", "")
-    
+    #teams_playing = self.get_page.css("div.game")[0].css("span").text[/\b\S*\z/]
+    # teams_playing = "#{team_1} vs #{team_2}" 
+    # team_1 = self.get_page.css("div.media-body")[0].css("span").text
+    # team_2 = self.get_page.css("div.media-body")[1].css("span").text
   end
 
 end
