@@ -13,7 +13,11 @@ class GamedayCliGem::CLI
 
   def list_games
       GamedayCliGem::Game.all.each_with_index do |game, index|
-      puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - #{game.start_time} "
+        if game.start_time.length < 1
+          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - FINAL "
+        else
+          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - #{game.start_time} " 
+        end
     end
 
   end 
