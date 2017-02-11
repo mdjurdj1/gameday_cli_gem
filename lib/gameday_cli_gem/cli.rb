@@ -7,8 +7,8 @@ class GamedayCliGem::CLI
 
   def list_games
       GamedayCliGem::Game.all.each_with_index do |game, index|
-        if !game.recap_url.nil?
-          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - FIN - Recap Available"
+        if !game.news_url.nil?
+          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - News Available"
         elsif game.start_time.length < 1
           puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - ONGOING "
         else
@@ -26,14 +26,14 @@ class GamedayCliGem::CLI
      puts
     list_games
     puts ""
-    puts "Select any game with a 'Recap Available' for more info. Or, type [Exit] to leave."
+    puts "Select any game with 'News Available' for more info. Or, type [Exit] to leave."
     input = gets.chomp.downcase
      if input == "exit"
        goodbye
      else
       system "clear"
-        if GamedayCliGem::Game.find(input.to_i) && GamedayCliGem::Game.find(input.to_i).recap_url.nil?
-            puts "No recap is currently available for that game. Please check back later tonight!"
+        if GamedayCliGem::Game.find(input.to_i) && GamedayCliGem::Game.find(input.to_i).news_url.nil?
+            puts "No news is currently available for that game. Please check back later tonight!"
             puts ""
             puts ""
             puts "------------------------------"
@@ -44,7 +44,7 @@ class GamedayCliGem::CLI
             puts "Invalid choice! Please hit enter to return to main menu."
             input = gets.chomp
             start
-        elsif GamedayCliGem::Game.find(input.to_i) && !GamedayCliGem::Game.find(input.to_i).recap_url.nil?
+        elsif GamedayCliGem::Game.find(input.to_i) && !GamedayCliGem::Game.find(input.to_i).news_url.nil?
           game = GamedayCliGem::Game.find(input.to_i)
             puts "------------------------------"
             puts game.headline
