@@ -4,18 +4,6 @@ This Ruby gem provides a list of all of the days' major sporting events using Sp
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'gameday_cli_gem'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
     $ gem install gameday_cli_gem
 
 ## Usage
