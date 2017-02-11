@@ -19,6 +19,14 @@ class GamedayCliGem::Game
     self.all[index-1]
   end
 
+  def teams_playing
+    @teams_playing = "#{@team_1} vs. #{@team_2}" 
+  end
+
+  def league 
+    #@league = self.get_page.css("div.game")[0].attribute("data-league").text
+  end
+   
   # def self.today 
   #   #should return all of today's games in an array
   #   game_1 = self.new
