@@ -31,6 +31,9 @@ class GamedayCliGem::CLI
     # while input != "exit"
     puts "Select any game with a 'Recap Available' for more info. Or, type [Exit] to leave."
     input = gets.chomp.downcase
+     if input == "exit"
+       goodbye 
+     else 
       system "clear"
       game = GamedayCliGem::Game.find(input.to_i)
       puts "------------------------------"
@@ -39,11 +42,25 @@ class GamedayCliGem::CLI
       game.final_score
       puts ""
       puts game.recap
-
+      puts "------------------------------"
+      puts "Enter [List] to return to today's games, or [Exit] to quit."
+      input = gets.chomp.downcase 
+      case input 
+        when "list"
+          system "clear"
+          start 
+        when "exit"
+          goodbye
+        else 
+          "I did not quite understand that - please input [List] or [Exit]."
+        end 
+      end 
   end
 
 def goodbye  #exit program method
+  system "clear"
   puts "See you tomorrow for the next game!"
+  sleep 0.5
 end
 
    

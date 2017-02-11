@@ -37,7 +37,7 @@ class GamedayCliGem::Game
   end
 
   def self.find(index)
-    self.all[index.to_i-1]
+      self.all[index.to_i-1]
   end
 
   def recap
@@ -48,7 +48,7 @@ class GamedayCliGem::Game
   end
 
   def final_score
-    puts "#{doc.css(".team-name")[0].text}: #{doc.css(".team-score")[0].text.strip} || #{doc.css(".team-name")[1].text}: #{doc.css(".team-score")[1].text.strip}"
+    puts "Final Score >> #{doc.css(".team-name")[0].text}: #{doc.css(".team-score")[0].text.strip} || #{doc.css(".team-name")[1].text}: #{doc.css(".team-score")[1].text.strip}"
   end 
 
   def headline 
