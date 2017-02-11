@@ -1,6 +1,6 @@
 class GamedayCliGem::Game 
 
-  attr_accessor :teams_playing, :league, :team1, :team2, :start_time, :preview_url
+  attr_accessor :league, :team1, :team2, :start_time, :preview_url
 
   @@all = []
 
@@ -40,3 +40,5 @@ class GamedayCliGem::Game
    
 end
 
+kek = GamedayCliGem::Game.new
+      binding.pry

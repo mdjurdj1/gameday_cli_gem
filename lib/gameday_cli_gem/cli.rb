@@ -13,7 +13,7 @@ class GamedayCliGem::CLI
 
   def list_games
       GamedayCliGem::Game.all.each_with_index do |game, index|
-      puts "#{index}. #{game.team1} vs. #{game.team2}"
+      puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2}"
     end
 
   end 
@@ -34,6 +34,9 @@ class GamedayCliGem::CLI
         puts "More info on game 3"
       when "list"
         system "clear"
+        puts "Today is #{DateTime.now.strftime('%m/%d/%Y')} -"
+        puts "Here are Today's Games:"
+        puts ""
         list_games
         puts ""
       when "exit"
