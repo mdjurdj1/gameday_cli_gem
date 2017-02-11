@@ -33,10 +33,18 @@ class GamedayCliGem::CLI
        goodbye 
      else 
       system "clear"
-      if GamedayCliGem::Game.find(input.to_i) 
-          game = GamedayCliGem::Game.find(input.to_i)
-        else
-          puts "Invalid choice! Please hit enter and try again." 
+      if GamedayCliGem::Game.find(input.to_i) && !GamedayCliGem::Game.find(input.to_i).recap_url.nil?
+          game = GamedayCliGem::Game.find(input.to_i) 
+      elsif GamedayCliGem::Game.find(input.to_i) && GamedayCliGem::Game.find(input.to_i).recap_url.nil?
+          puts "No recap is currently available for that game. Please check back later tonight!"
+          puts ""
+          puts ""
+          puts "------------------------------"
+          puts "Press enter to return to main menu."
+          input = gets.chomp
+          start
+      else 
+          puts "Invalid choice! Please hit enter to return to main menu." 
           input = gets 
           start
         end 
@@ -51,7 +59,6 @@ class GamedayCliGem::CLI
       input = gets.chomp.downcase 
       case input 
         when "list"
-          system "clear"
           start 
         when "exit"
           goodbye
