@@ -10,7 +10,7 @@ class GamedayCliGem::Game
     @league = league 
     @start_time = start_time
     @preview_url = preview_url
-    self.class.all << self 
+    self.class.all << self unless self.class.all.include?(self)
   end
 
   def self.new_from_index_page(game)

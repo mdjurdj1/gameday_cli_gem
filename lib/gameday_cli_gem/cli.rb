@@ -8,7 +8,7 @@ class GamedayCliGem::CLI
    end
 
   def list_games
-    GamedayCliGem::Game.each_with_index do |game, index|
+    GamedayCliGem::Game.all.each_with_index do |game, index|
       puts "#{index}. #{game.team1} vs. #{game.team2}"
     end
 
