@@ -1,9 +1,9 @@
 class GamedayCliGem::CLI 
 
   def call  #Main program loop
-     list_games
-     menu
-     goodbye
+     GamedayCliGem::Scraper.new.make_games
+     puts "Today is #{DateTime.now.strftime('%m/%d/%Y')} -"
+     puts "Here are Today's Upcoming Games:"
    end
 
  def list_games  #method will list all of the day's games, including score for completed/in-progress games
