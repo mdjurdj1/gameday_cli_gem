@@ -36,6 +36,7 @@ class GamedayCliGem::CLI
       puts "------------------------------"
       puts game.headline 
       puts "------------------------------"
+      game.final_score
       puts ""
       puts game.recap
 
