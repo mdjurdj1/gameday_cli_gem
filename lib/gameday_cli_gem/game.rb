@@ -13,7 +13,7 @@ class GamedayCliGem::Game
     self.class.all << self unless self.class.all.include?(self)
   end
 
-  def self.new_from_index_page(game) # IT FUCKING WORKED THANK GOD
+  def self.new_from_index_page(game) # IT #%@KING WORKED THANK GOD
     if game.at_css(".game-link")
       self.new(
         game.css("div.media-body")[0].css("span").text,
