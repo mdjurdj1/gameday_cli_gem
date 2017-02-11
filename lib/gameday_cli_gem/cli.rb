@@ -2,6 +2,7 @@ class GamedayCliGem::CLI
 
   def call  #Main program loop
      GamedayCliGem::Scraper.new.make_games
+     binding.pry
      puts "-------------------"
      puts "Welcome to Gameday!"
      puts "-------------------"

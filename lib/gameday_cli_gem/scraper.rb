@@ -8,6 +8,7 @@ class GamedayCliGem::Scraper
 
   def scrape_games_index 
       self.get_page.css("div.game")
+      # binding.pry
   end 
 
   def make_games
@@ -23,4 +24,3 @@ class GamedayCliGem::Scraper
   end
 
 end
-
