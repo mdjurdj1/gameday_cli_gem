@@ -1,0 +1,93 @@
+=> [1;34m#(Element:0x11b4e54 {[0m
+  name = [31m[1;31m"[0m[31mdiv[1;31m"[0m[31m[0m,
+  attributes = [ [1;34m#(Attr:0x11a4298 {[0m name = [31m[1;31m"[0m[31mclass[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mmedia-body[1;31m"[0m[31m[0m })],
+  children = [
+    [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                [1;31m"[0m[31m[0m),
+    [1;34m#(Element:0x11543d8 {[0m
+      name = [31m[1;31m"[0m[31mdiv[1;31m"[0m[31m[0m,
+      attributes = [
+        [1;34m#(Attr:0x114f0b8 {[0m name = [31m[1;31m"[0m[31mclass[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mfloat-left[1;31m"[0m[31m[0m })],
+      children = [
+        [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                    [1;31m"[0m[31m[0m),
+        [1;34m#(Element:0x107e814 {[0m
+          name = [31m[1;31m"[0m[31mdiv[1;31m"[0m[31m[0m,
+          attributes = [
+            [1;34m#(Attr:0x1066bc4 {[0m name = [31m[1;31m"[0m[31mclass[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mteam-city[1;31m"[0m[31m[0m })],
+          children = [
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                        [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x1024210 {[0m
+              name = [31m[1;31m"[0m[31ma[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0xff125c {[0m name = [31m[1;31m"[0m[31mclass[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31munskinned[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0xff1248 {[0m
+                  name = [31m[1;31m"[0m[31mhref[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/nhl/team/chicago-blackhawks[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0xff1234 {[0m
+                  name = [31m[1;31m"[0m[31mdata-action[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31mscore-tile-team-1-city[1;31m"[0m[31m[0m
+                  })],
+              children = [
+                [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                      Chicago[1;35m\n[0m[31m                                      [1;31m"[0m[31m[0m)]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                  [1;31m"[0m[31m[0m)]
+          }),
+        [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                  [1;31m"[0m[31m[0m),
+        [1;34m#(Element:0x149081c {[0m
+          name = [31m[1;31m"[0m[31mdiv[1;31m"[0m[31m[0m,
+          attributes = [
+            [1;34m#(Attr:0x145b8ec {[0m
+              name = [31m[1;31m"[0m[31mclass[1;31m"[0m[31m[0m,
+              value = [31m[1;31m"[0m[31mteam-name-container [1;31m"[0m[31m[0m
+              })],
+          children = [
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                    [1;31m"[0m[31m[0m),
+            [1;34m#(Element:0x1532400 {[0m
+              name = [31m[1;31m"[0m[31ma[1;31m"[0m[31m[0m,
+              attributes = [
+                [1;34m#(Attr:0x152eb20 {[0m name = [31m[1;31m"[0m[31mclass[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31munskinned[1;31m"[0m[31m[0m }),
+                [1;34m#(Attr:0x152eb0c {[0m
+                  name = [31m[1;31m"[0m[31mhref[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31m/nhl/team/chicago-blackhawks[1;31m"[0m[31m[0m
+                  }),
+                [1;34m#(Attr:0x152eaf8 {[0m
+                  name = [31m[1;31m"[0m[31mdata-action[1;31m"[0m[31m[0m,
+                  value = [31m[1;31m"[0m[31mscore-tile-team-1-name[1;31m"[0m[31m[0m
+                  })],
+              children = [
+                [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                      [1;31m"[0m[31m[0m),
+                [1;34m#(Element:0x150c7f0 {[0m
+                  name = [31m[1;31m"[0m[31mspan[1;31m"[0m[31m[0m,
+                  attributes = [
+                    [1;34m#(Attr:0x1509244 {[0m name = [31m[1;31m"[0m[31mclass[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mteam-name[1;31m"[0m[31m[0m })],
+                  children = [ [1;34m#(Text [0m[31m[1;31m"[0m[31mBlackhawks[1;31m"[0m[31m[0m)]
+                  }),
+                [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                          [1;31m"[0m[31m[0m),
+                [1;34m#(Element:0x14db5b0 {[0m
+                  name = [31m[1;31m"[0m[31mspan[1;31m"[0m[31m[0m,
+                  attributes = [
+                    [1;34m#(Attr:0x14d44f4 {[0m name = [31m[1;31m"[0m[31mclass[1;31m"[0m[31m[0m, value = [31m[1;31m"[0m[31mrecord[1;31m"[0m[31m[0m })],
+                  children = [
+                    [1;34m#(Text [0m[31m[1;31m"[0m[31m(33-17[1;31m"[0m[31m[0m),
+                    [1;34m#(Comment [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                            [1;31m"[0m[31m[0m),
+                    [1;34m#(Text [0m[31m[1;31m"[0m[31m-5)[1;31m"[0m[31m[0m)]
+                  }),
+                [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                    [1;31m"[0m[31m[0m)]
+              }),
+            [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                  [1;31m"[0m[31m[0m)]
+          }),
+        [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                [1;31m"[0m[31m[0m)]
+      }),
+    [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                  [1;31m"[0m[31m[0m),
+    [1;34m#(Element:0x148203c {[0m
+      name = [31m[1;31m"[0m[31mdiv[1;31m"[0m[31m[0m,
+      attributes = [
+        [1;34m#(Attr:0x147e784 {[0m
+          name = [31m[1;31m"[0m[31mclass[1;31m"[0m[31m[0m,
+          value = [31m[1;31m"[0m[31mteam-score float-right[1;31m"[0m[31m[0m
+          })],
+      children = [
+        [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                                      2[1;35m\n[0m[31m                                  [1;31m"[0m[31m[0m)]
+      }),
+    [1;34m#(Text [0m[31m[1;31m"[0m[31m[1;35m\n[0m[31m                              [1;31m"[0m[31m[0m)]
+  })

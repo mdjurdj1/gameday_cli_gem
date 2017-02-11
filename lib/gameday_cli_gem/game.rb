@@ -1,11 +1,11 @@
 class GamedayCliGem::Game 
 
-  attr_accessor :name, :team1, :team2, :start_time, :ongoing, :preview
+  attr_accessor :teams_playing, :league, :team1, :team2, :start_time, :ongoing, :preview
 
   @@all = []
 
-  def initialize(name = nil)
-    @name = name 
+  def initialize(teams_playing = nil)
+    @teams_playing = teams_playing 
   end
 
   def self.all 
