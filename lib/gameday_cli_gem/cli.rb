@@ -4,14 +4,17 @@ class GamedayCliGem::CLI
      GamedayCliGem::Scraper.new.make_games
      puts "Today is #{DateTime.now.strftime('%m/%d/%Y')} -"
      puts "Here are Today's Upcoming Games:"
+     start
    end
 
- def list_games  #method will list all of the day's games, including score for completed/in-progress games
-   puts "Today's Upcoming Games:"
-   puts "Games lists"
- end
+  def list_games
+    GamedayCliGem::Game.each_with_index do |game, index|
+      puts "#{index}. #{game.team1} vs. #{game.team2}"
+    end
 
- def menu  #menu interface. navigates to individual games, or daily games listing
+  end 
+   
+ def start  #menu interface. navigates to individual games, or daily games listing
     input = nil
     while input != "exit"
       puts "Enter the number of the game you'd like more info on or type [List] to see the games again, or type [Exit] to leave."

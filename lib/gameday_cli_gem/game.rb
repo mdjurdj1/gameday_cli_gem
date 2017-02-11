@@ -17,8 +17,8 @@ class GamedayCliGem::Game
     self.new(
       game.css("div.media-body")[0].css("span").text,
       game.css("div.media-body")[1].css("span").text,
-      game[0].attribute("data-league").text,
-      game.css(".status-pregame")[0].text.gsub(" ", "").gsub(/\n/, "")
+      game.attribute("data-league").text,
+      game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, "")
       )
     end
       
