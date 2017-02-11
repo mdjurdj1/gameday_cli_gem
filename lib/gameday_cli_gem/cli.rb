@@ -8,7 +8,7 @@ class GamedayCliGem::CLI
   def list_games
       GamedayCliGem::Game.all.each_with_index do |game, index|
         if !game.news_url.nil?
-          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - News Available"
+          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - #{game.start_time} - News Available"
         elsif game.start_time.length < 1
           puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - ONGOING "
         else

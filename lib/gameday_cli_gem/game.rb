@@ -14,7 +14,7 @@ class GamedayCliGem::Game
   end
 
   def self.new_from_index_page(game) # IT #%@KING WORKED THANK GOD
-    if game.css(".game-link").text == "Preview" || game.css(".game-link").text.include?("Recap")
+    if game.css(".game-link").text == "Preview"  #selects for upcoming games with previews
       self.new(
         game.css("div.media-body")[0].css("span").text,
         game.css("div.media-body")[1].css("span").text,
@@ -22,14 +22,22 @@ class GamedayCliGem::Game
         game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, ""),
          "http://www.si.com#{game.css(".game-link").attribute("href").text}"
         )
-    elsif game.at_css(".status-pregame")
+    elsif game.css(".game-link").text.include?("Recap")  #selects for games with recap, which must be finished
+      self.new(
+        game.css("div.media-body")[0].css("span").text,
+        game.css("div.media-body")[1].css("span").text,
+        game.attribute("data-league").text.upcase,
+        "FIN",
+        "http://www.si.com#{game.css(".game-link").attribute("href").text}"
+        )
+    elsif game.at_css(".status-pregame")  #selects for games with a visible start time
        self.new(
          game.css("div.media-body")[0].css("span").text,
          game.css("div.media-body")[1].css("span").text,
          game.attribute("data-league").text.upcase,
          game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, "")
          )
-     elsif game.at_css(".status-final")
+     elsif game.at_css(".status-final") #selects for any other completed games with no recap/preview or start time
         self.new(
           game.css("div.media-body")[0].css("span").text,
           game.css("div.media-body")[1].css("span").text,
@@ -58,6 +66,7 @@ class GamedayCliGem::Game
     if doc.at_css(".team-score")
       puts "Final Score >> #{doc.css(".team-name")[0].text}: #{doc.css(".team-score")[0].text.strip} || #{doc.css(".team-name")[1].text}: #{doc.css(".team-score")[1].text.strip}"
     else
+      puts "Here's a quick preview!"
       puts ""
     end
   end
