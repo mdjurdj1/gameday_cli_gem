@@ -4,13 +4,24 @@ class GamedayCliGem::Game
 
   @@all = []
 
-  def initialize(teams_playing = nil, league = nil, start_time = nil, preview_url = nil)
-    @teams_playing = teams_playing 
+  def initialize(team1 = nil, team2 = nil, league = nil, start_time = nil, preview_url = nil)
+    @team1 = team1 
+    @team2 = team2
     @league = league 
     @start_time = start_time
     @preview_url = preview_url
+    self.class.all << self 
   end
 
+  def self.new_from_index_page(game)
+    self.new(
+      game.css("div.media-body")[0].css("span").text,
+      game.css("div.media-body")[1].css("span").text,
+      game[0].attribute("data-league").text,
+      game.css(".status-pregame")[0].text.gsub(" ", "").gsub(/\n/, "")
+      )
+    end
+      
   def self.all 
     @@all 
   end
@@ -27,21 +38,5 @@ class GamedayCliGem::Game
     #@league = self.get_page.css("div.game")[0].attribute("data-league").text
   end
    
-  # def self.today 
-  #   #should return all of today's games in an array
-  #   game_1 = self.new
-  #   game_1.name = "Heat vs Knicks"
-  #   game_1.start_time = "9:00pm"
-  #   game_1.ongoing = false
-  #   game_1.preview_url = "http://www.si.com/nhl/game/1646895"
-  # 
-  #   game_2 = self.new
-  #   game_2.name = "Cavs vs Thunder"
-  #   game_2.start_time = "9:00pm"
-  #   game_2.ongoing = false
-  #   game_2.preview_url = "http://www.si.com/nhl/game/1646889"
-  # 
-  #   [game_1, game_2]
-  # end
-
 end
+
