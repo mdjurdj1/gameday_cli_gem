@@ -22,14 +22,21 @@ class GamedayCliGem::Game
         game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, ""),
          "http://www.si.com#{game.css(".game-link").attribute("href").text}"
         )
-    else
+    elsif game.at_css(".status-pregame")
        self.new(
          game.css("div.media-body")[0].css("span").text,
          game.css("div.media-body")[1].css("span").text,
          game.attribute("data-league").text.upcase,
          game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, "")
          )
-       end
+     elsif game.at_css(".status-final")
+        self.new(
+          game.css("div.media-body")[0].css("span").text,
+          game.css("div.media-body")[1].css("span").text,
+          game.attribute("data-league").text.upcase,
+          "FIN"
+          )
+        end
     end
 
   def self.all
