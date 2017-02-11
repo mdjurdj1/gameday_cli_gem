@@ -22,7 +22,7 @@ class GamedayCliGem::Game
         game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, ""),
          "http://www.si.com#{game.css(".game-link").attribute("href").text}"
         )
-     else
+    else
        self.new(
          game.css("div.media-body")[0].css("span").text,
          game.css("div.media-body")[1].css("span").text,

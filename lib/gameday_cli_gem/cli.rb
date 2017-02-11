@@ -10,12 +10,11 @@ class GamedayCliGem::CLI
         if !game.recap_url.nil?
           puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - FIN - Recap Available"
         elsif game.start_time.length < 1
-          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - FIN "
+          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - ONGOING "
         else
           puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - #{game.start_time} "
         end
     end
-
   end
 
  def start  #menu interface. navigates to individual games, or daily games listing
@@ -33,41 +32,41 @@ class GamedayCliGem::CLI
        goodbye
      else
       system "clear"
-      if GamedayCliGem::Game.find(input.to_i) && !GamedayCliGem::Game.find(input.to_i).recap_url.nil?
+        if GamedayCliGem::Game.find(input.to_i) && GamedayCliGem::Game.find(input.to_i).recap_url.nil?
+            puts "No recap is currently available for that game. Please check back later tonight!"
+            puts ""
+            puts ""
+            puts "------------------------------"
+            puts "Press enter to return to main menu."
+            input = gets.chomp
+            start
+        elsif !GamedayCliGem::Game.find(input.to_i)
+            puts "Invalid choice! Please hit enter to return to main menu."
+            input = gets.chomp
+            start
+        elsif GamedayCliGem::Game.find(input.to_i) && !GamedayCliGem::Game.find(input.to_i).recap_url.nil?
           game = GamedayCliGem::Game.find(input.to_i)
-      elsif GamedayCliGem::Game.find(input.to_i) && GamedayCliGem::Game.find(input.to_i).recap_url.nil?
-          puts "No recap is currently available for that game. Please check back later tonight!"
-          puts ""
-          puts ""
-          puts "------------------------------"
-          puts "Press enter to return to main menu."
-          input = gets.chomp
-          start
-      else
-          puts "Invalid choice! Please hit enter to return to main menu."
-          input = gets
-          start
+            puts "------------------------------"
+            puts game.headline
+            puts "------------------------------"
+            game.final_score
+            puts ""
+            puts game.recap
+            puts "------------------------------"
+            puts "Enter [List] to return to today's games, or [Exit] to quit."
+            input = gets.chomp.downcase
+            case input
+              when "list"
+                system "clear"
+                start
+              when "exit"
+                goodbye
+              else
+                system "clear"
+                start
+              end
+            end
         end
-      puts "------------------------------"
-      puts game.headline
-      puts "------------------------------"
-      game.final_score
-      puts ""
-      puts game.recap
-      puts "------------------------------"
-      puts "Enter [List] to return to today's games, or [Exit] to quit."
-      input = gets.chomp.downcase
-      case input
-        when "list"
-          system "clear"
-          start
-        when "exit"
-          goodbye
-        else
-          system "clear"
-          start
-        end
-      end
   end
 
 def goodbye  #exit program method
