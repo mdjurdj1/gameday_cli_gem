@@ -1,14 +1,15 @@
 class GamedayCliGem::Game 
 
-  attr_accessor :league, :team1, :team2, :start_time, :preview_url
+  attr_accessor :league, :team1, :team2, :start_time, :recap_url, :preview_url
 
   @@all = []
 
-  def initialize(team1, team2, league, start_time = nil, preview_url = nil)
+  def initialize(team1, team2, league, start_time = nil, recap_url = nil)
     @team1 = team1 
     @team2 = team2
     @league = league 
     @start_time = start_time
+    @recap_url = recap_url
     @preview_url = preview_url
     self.class.all << self unless self.class.all.include?(self)
   end
@@ -18,7 +19,8 @@ class GamedayCliGem::Game
       game.css("div.media-body")[0].css("span").text,
       game.css("div.media-body")[1].css("span").text,
       game.attribute("data-league").text.upcase,
-      game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, "")
+      game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, ""),
+      "http://www.si.com#{game.css(".game-link").attribute("href")}"
       )
     end
       
@@ -28,10 +30,6 @@ class GamedayCliGem::Game
 
   def self.find(index)
     self.all[index-1]
-  end
-
-  def teams_playing
-    @teams_playing = "#{@team_1} vs. #{@team_2}" 
   end
 
 
