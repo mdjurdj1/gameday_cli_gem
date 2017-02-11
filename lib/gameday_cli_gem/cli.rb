@@ -62,6 +62,7 @@ def goodbye  #exit program method
   system "clear"
   puts ""
   puts "See you tomorrow for the next game!"
+  puts ""
   sleep 0.5
 end
 
