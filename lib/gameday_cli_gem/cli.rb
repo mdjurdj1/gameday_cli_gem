@@ -2,19 +2,25 @@ class GamedayCliGem::CLI
 
   def call  #Main program loop
      GamedayCliGem::Scraper.new.make_games
+     puts "-------------------"
+     puts "Welcome to Gameday!"
+     puts "-------------------"
      puts "Today is #{DateTime.now.strftime('%m/%d/%Y')} -"
-     puts "Here are Today's Upcoming Games:"
+     puts "Here are Today's Games:"
+     puts 
      start
    end
 
   def list_games
-    GamedayCliGem::Game.all.each_with_index do |game, index|
+      GamedayCliGem::Game.all.each_with_index do |game, index|
       puts "#{index}. #{game.team1} vs. #{game.team2}"
     end
 
   end 
    
  def start  #menu interface. navigates to individual games, or daily games listing
+    list_games
+    puts ""
     input = nil
     while input != "exit"
       puts "Enter the number of the game you'd like more info on or type [List] to see the games again, or type [Exit] to leave."
@@ -27,7 +33,9 @@ class GamedayCliGem::CLI
       when "3"
         puts "More info on game 3"
       when "list"
+        system "clear"
         list_games
+        puts ""
       when "exit"
         break
       else

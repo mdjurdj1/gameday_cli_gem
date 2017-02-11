@@ -24,5 +24,3 @@ class GamedayCliGem::Scraper
 
 end
 
-kek = GamedayCliGem::Scraper.new 
-kek.make_games
