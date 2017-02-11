@@ -1,10 +1,10 @@
 class GamedayCliGem::Game 
 
-  attr_accessor :league, :team1, :team2, :start_time, :recap_url
+  attr_accessor :league, :team1, :team2, :team1_score, :team2_score, :start_time, :recap_url, :recap, :headline
 
   @@all = []
 
-  def initialize(team1, team2, league, start_time = nil, recap_url = nil)
+  def initialize(team1 = nil, team2 = nil, league = nil, start_time = nil, recap_url = nil, team1_score = nil, team2_score = nil)
     @team1 = team1 
     @team2 = team2
     @league = league 
@@ -37,15 +37,23 @@ class GamedayCliGem::Game
   end
 
   def self.find(index)
-    self.all[index-1]
+    self.all[index.to_i-1]
   end
 
-  def recap_urlz
-    doc
+  def recap
+    puts doc.css(".article p")[0].text
+    puts doc.css(".article p")[1].text
+    puts doc.css(".article p")[2].text
+    puts doc.css(".article p")[3].text
+  end
+    
+
+  def headline 
+    @headline = doc.css(".article h1").text
   end
 
   def doc
-    Nokogiri::HTML(open("http://www.si.com/scoreboard"))
+    Nokogiri::HTML(open(self.recap_url))
   end 
 
    

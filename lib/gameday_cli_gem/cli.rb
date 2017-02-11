@@ -27,30 +27,18 @@ class GamedayCliGem::CLI
  def start  #menu interface. navigates to individual games, or daily games listing
     list_games
     puts ""
-    input = nil
-    while input != "exit"
-      puts "Enter the number of the game you'd like more info on or type [List] to see the games again, or type [Exit] to leave."
-      input = gets.chomp.downcase
-      case input
-      when "1"
-        puts "More info on game 1"
-      when "2"
-        puts "More info on game 2"
-      when "3"
-        puts "More info on game 3"
-      when "list"
-        system "clear"
-        puts "Today is #{DateTime.now.strftime('%m/%d/%Y')} -"
-        puts "Here are Today's Games:"
-        puts ""
-        list_games
-        puts ""
-      when "exit"
-        break
-      else
-        puts "Invalid choice - Please type [List] or [Exit]"
-      end
-    end
+    # input = nil
+    # while input != "exit"
+    puts "Select any game with a 'Recap Available' for more info. Or, type [Exit] to leave."
+    input = gets.chomp.downcase
+      system "clear"
+      game = GamedayCliGem::Game.find(input.to_i)
+      puts "------------------------------"
+      puts game.headline 
+      puts "------------------------------"
+      puts ""
+      puts game.recap
+
   end
 
 def goodbye  #exit program method
