@@ -1,7 +1,8 @@
 class GamedayCliGem::CLI 
 
-  def call 
-    puts "Today's Games:"
-  end 
-
+  def call  #Main program loop
+     list_games
+     menu
+     goodbye
+   end
 end
