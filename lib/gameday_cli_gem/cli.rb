@@ -59,6 +59,7 @@ class GamedayCliGem::CLI
       input = gets.chomp.downcase
       case input
         when "list"
+          system "clear"
           start
         when "exit"
           goodbye
