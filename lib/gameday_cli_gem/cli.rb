@@ -34,5 +34,9 @@ class GamedayCliGem::CLI
     end
   end
 
+def goodbye  #exit program method
+  puts "See you tomorrow for the next game!"
+end
+
    
 end
