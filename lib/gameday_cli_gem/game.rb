@@ -1,6 +1,17 @@
 class GamedayCliGem::Game 
 
-  attr_accessor :name, :team1, :team2, :start_time, :ongoing, :preview_url
+  attr_accessor :name, :team1, :team2, :start_time, :ongoing, :preview
+
+  @@all = []
+
+  def initialize(team_1, team_2)
+    @team1 = team_1 
+    @team2 = team_2 
+  end
+
+  def self.all 
+    @@all 
+  end
 
   def self.today 
     #should return all of today's games in an array
