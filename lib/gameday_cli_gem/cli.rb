@@ -8,7 +8,7 @@ class GamedayCliGem::CLI
 
  def list_games  #method will list all of the day's games, including score for completed/in-progress games
    puts "Today's Upcoming Games:"
-   @games = Gameday::Games.today
+   @games = GamedayCliGem::Game.today
  end
 
  def menu  #menu interface. navigates to individual games, or daily games listing

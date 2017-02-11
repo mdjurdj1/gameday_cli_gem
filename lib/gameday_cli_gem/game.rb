@@ -1,0 +1,3 @@
+class GamedayCliGem::Game 
+
+end
