@@ -14,6 +14,7 @@ class GamedayCliGem::Scraper
   def make_games
     # teams_playing = self.get_page.css("div.game")[0].css("span").text[/\b\S*\z/]
     # teams_playing = "#{team_1} vs #{team_2}" 
+    # game_start_time = self.get_page.css(".status-pregame")[0].text.gsub(" ", "").gsub(/\n/, "")
     # game_league = self.get_page.css("div.game")[0].attribute("data-league").text
     # team_1 = self.get_page.css("div.media-body")[0].css("span").text
     # team_2 = self.get_page.css("div.media-body")[1].css("span").text
@@ -21,5 +22,3 @@ class GamedayCliGem::Scraper
 
 end
 
-kek = GamedayCliGem::Scraper.new 
-kek.scrape_games_index
