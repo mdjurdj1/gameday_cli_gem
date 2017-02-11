@@ -4,9 +4,8 @@ class GamedayCliGem::Game
 
   @@all = []
 
-  def initialize(team_1, team_2)
-    @team1 = team_1 
-    @team2 = team_2 
+  def initialize(name)
+    @name = name 
   end
 
   def self.all 
