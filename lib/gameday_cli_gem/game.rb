@@ -4,7 +4,7 @@ class GamedayCliGem::Game
 
   @@all = []
 
-  def initialize(name)
+  def initialize(name = nil)
     @name = name 
   end
 
