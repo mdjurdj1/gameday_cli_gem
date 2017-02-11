@@ -1,13 +1,13 @@
-class GamedayCliGem::Game 
+class GamedayCliGem::Game
 
   attr_accessor :league, :team1, :team2, :start_time, :recap_url, :headline
 
   @@all = []
 
   def initialize(team1 = nil, team2 = nil, league = nil, start_time = nil, recap_url = nil)
-    @team1 = team1 
+    @team1 = team1
     @team2 = team2
-    @league = league 
+    @league = league
     @start_time = start_time
     @recap_url = recap_url
     self.class.all << self unless self.class.all.include?(self)
@@ -22,7 +22,7 @@ class GamedayCliGem::Game
         game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, ""),
          "http://www.si.com#{game.css(".game-link").attribute("href").text}"
         )
-     else 
+     else
        self.new(
          game.css("div.media-body")[0].css("span").text,
          game.css("div.media-body")[1].css("span").text,
@@ -31,9 +31,9 @@ class GamedayCliGem::Game
          )
        end
     end
-      
-  def self.all 
-    @@all 
+
+  def self.all
+    @@all
   end
 
   def self.find(index)
@@ -49,7 +49,7 @@ class GamedayCliGem::Game
 
   def final_score  #puts the final score of a completed game
     puts "Final Score >> #{doc.css(".team-name")[0].text}: #{doc.css(".team-score")[0].text.strip} || #{doc.css(".team-name")[1].text}: #{doc.css(".team-score")[1].text.strip}"
-  end 
+  end
 
   def headline  #headline selector from doc
     @headline = doc.css(".article h1").text
@@ -57,8 +57,7 @@ class GamedayCliGem::Game
 
   def doc  #document of the recap_url for games with an available recap
     Nokogiri::HTML(open(self.recap_url))
-  end 
+  end
 
-   
+
 end
-
