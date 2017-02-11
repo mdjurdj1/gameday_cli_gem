@@ -4,7 +4,7 @@ class GamedayCliGem::Game
 
   @@all = []
 
-  def initialize(team1 = nil, team2 = nil, league = nil, start_time = nil, preview_url = nil)
+  def initialize(team1, team2, league, start_time = nil, preview_url = nil)
     @team1 = team1 
     @team2 = team2
     @league = league 
@@ -17,7 +17,7 @@ class GamedayCliGem::Game
     self.new(
       game.css("div.media-body")[0].css("span").text,
       game.css("div.media-body")[1].css("span").text,
-      game.attribute("data-league").text,
+      game.attribute("data-league").text.upcase,
       game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, "")
       )
     end
@@ -34,11 +34,7 @@ class GamedayCliGem::Game
     @teams_playing = "#{@team_1} vs. #{@team_2}" 
   end
 
-  def league 
-    #@league = self.get_page.css("div.game")[0].attribute("data-league").text
-  end
+
    
 end
 
-kek = GamedayCliGem::Game.new
-      binding.pry
