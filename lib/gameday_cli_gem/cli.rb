@@ -11,5 +11,28 @@ class GamedayCliGem::CLI
    @games = Gameday::Games.today
  end
 
+ def menu  #menu interface. navigates to individual games, or daily games listing
+    input = nil
+    while input != "exit"
+      puts "Enter the number of the game you'd like more info on or type [List] to see the games again, or type [Exit] to leave."
+      input = gets.chomp.downcase
+      case input
+      when "1"
+        puts "More info on game 1"
+      when "2"
+        puts "More info on game 2"
+      when "3"
+        puts "More info on game 3"
+      when "list"
+        list_games
+      when "exit"
+        goodbye
+        break
+      else
+        puts "Invalid choice - Please type [List] or [Exit]"
+      end
+    end
+  end
+
    
 end
