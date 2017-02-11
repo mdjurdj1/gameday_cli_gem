@@ -2,7 +2,6 @@ class GamedayCliGem::CLI
 
   def call  #Main program loop
      GamedayCliGem::Scraper.new.make_games
-     binding.pry
      puts "-------------------"
      puts "Welcome to Gameday!"
      puts "-------------------"
@@ -14,8 +13,10 @@ class GamedayCliGem::CLI
 
   def list_games
       GamedayCliGem::Game.all.each_with_index do |game, index|
-        if game.start_time.length < 1
-          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - FINAL "
+        if !game.recap_url.nil?
+          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - FIN - Recap Available"
+        elsif game.start_time.length < 1
+          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - FIN "
         else
           puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - #{game.start_time} " 
         end

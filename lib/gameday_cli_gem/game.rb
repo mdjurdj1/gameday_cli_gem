@@ -1,15 +1,15 @@
 class GamedayCliGem::Game 
 
-  attr_accessor :league, :team1, :team2, :start_time, :url
+  attr_accessor :league, :team1, :team2, :start_time, :recap_url
 
   @@all = []
 
-  def initialize(team1, team2, league, start_time = nil, url = nil)
+  def initialize(team1, team2, league, start_time = nil, recap_url = nil)
     @team1 = team1 
     @team2 = team2
     @league = league 
     @start_time = start_time
-    @url = url
+    @recap_url = recap_url
     self.class.all << self unless self.class.all.include?(self)
   end
 
