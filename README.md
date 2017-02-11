@@ -1,4 +1,4 @@
-# GamedayCliGem
+# Gameday Cli Gem
 
 This Ruby gem provides a list of all of the days' major sporting events using SportsIllustrated's live scoreboards and recaps! Finished events can be accessed for final scores and brief recaps.
 
