@@ -1,6 +1,6 @@
 class GamedayCliGem::Game 
 
-  attr_accessor :league, :team1, :team2, :start_time, :recap_url, :recap, :headline
+  attr_accessor :league, :team1, :team2, :start_time, :recap_url, :headline
 
   @@all = []
 
@@ -40,22 +40,22 @@ class GamedayCliGem::Game
       self.all[index.to_i-1]
   end
 
-  def recap
+  def recap  #puts a truncated recap article to terminal
     puts doc.css(".article p")[0].text
     puts doc.css(".article p")[1].text
     puts doc.css(".article p")[2].text
     puts doc.css(".article p")[3].text
   end
 
-  def final_score
+  def final_score  #puts the final score of a completed game
     puts "Final Score >> #{doc.css(".team-name")[0].text}: #{doc.css(".team-score")[0].text.strip} || #{doc.css(".team-name")[1].text}: #{doc.css(".team-score")[1].text.strip}"
   end 
 
-  def headline 
+  def headline  #headline selector from doc
     @headline = doc.css(".article h1").text
   end
 
-  def doc
+  def doc  #document of the recap_url for games with an available recap
     Nokogiri::HTML(open(self.recap_url))
   end 
 

@@ -52,13 +52,15 @@ class GamedayCliGem::CLI
         when "exit"
           goodbye
         else 
-          "I did not quite understand that - please input [List] or [Exit]."
+          system "clear"
+          start
         end 
       end 
   end
 
 def goodbye  #exit program method
   system "clear"
+  puts ""
   puts "See you tomorrow for the next game!"
   sleep 0.5
 end
