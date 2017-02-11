@@ -26,7 +26,6 @@ class GamedayCliGem::CLI
       when "list"
         list_games
       when "exit"
-        goodbye
         break
       else
         puts "Invalid choice - Please type [List] or [Exit]"
