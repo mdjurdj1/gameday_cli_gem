@@ -13,7 +13,7 @@ class GamedayCliGem::Game
     self.class.all << self unless self.class.all.include?(self)
   end
 
-  def self.new_from_index_page(game) # IT #%@KING WORKED THANK GOD
+  def self.new_from_index_page(game) # Instantiates game objects from XML code passed by Scraper class. Conditionals determine initialize params
     if game.css(".game-link").text == "Preview"  #selects for upcoming games with previews
       self.new(
         game.css("div.media-body")[0].css("span").text,
