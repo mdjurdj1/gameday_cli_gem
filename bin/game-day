@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
+require 'bundler/setup'
 require './lib/gameday_cli_gem'
 
 GamedayCliGem::CLI.new.call
