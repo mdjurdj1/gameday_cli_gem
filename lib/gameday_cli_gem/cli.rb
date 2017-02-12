@@ -32,7 +32,7 @@ class GamedayCliGem::CLI
        goodbye
      else
       system "clear"
-        if GamedayCliGem::Game.find(input.to_i) && GamedayCliGem::Game.find(input.to_i).news_url.nil?
+        if GamedayCliGem::Game.find(input.to_i) && GamedayCliGem::Game.find(input.to_i).news_url.nil? #found game, but no news url to dig into
             puts "No news is currently available for that game. Please check back later tonight!"
             puts ""
             puts ""
@@ -40,7 +40,7 @@ class GamedayCliGem::CLI
             puts "Press enter to return to main menu."
             input = gets.chomp
             start
-        elsif !GamedayCliGem::Game.find(input.to_i)
+        elsif !GamedayCliGem::Game.find(input.to_i) #did not find game by number
             puts "Invalid game selection! Please input a valid game number. [1 - #{GamedayCliGem::Game.all.length}]"
             puts ""
             puts ""
@@ -48,7 +48,7 @@ class GamedayCliGem::CLI
             puts "Press enter to return to main menu."
             input = gets.chomp
             start
-        elsif GamedayCliGem::Game.find(input.to_i) && !GamedayCliGem::Game.find(input.to_i).news_url.nil?
+        elsif GamedayCliGem::Game.find(input.to_i) && !GamedayCliGem::Game.find(input.to_i).news_url.nil? #found game and it has a news_url to dig into
           game = GamedayCliGem::Game.find(input.to_i)
             puts "------------------------------"
             puts game.headline
