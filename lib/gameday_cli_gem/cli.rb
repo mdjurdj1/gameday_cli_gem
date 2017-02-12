@@ -41,7 +41,11 @@ class GamedayCliGem::CLI
             input = gets.chomp
             start
         elsif !GamedayCliGem::Game.find(input.to_i)
-            puts "Invalid choice! Please hit enter to return to main menu."
+            puts "Invalid game selection! Please input a valid game number. [1 - #{GamedayCliGem::Game.all.length}]"
+            puts ""
+            puts ""
+            puts "------------------------------"
+            puts "Press enter to return to main menu."
             input = gets.chomp
             start
         elsif GamedayCliGem::Game.find(input.to_i) && !GamedayCliGem::Game.find(input.to_i).news_url.nil?
