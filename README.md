@@ -8,7 +8,7 @@ This Ruby gem provides a list of all of the days' major sporting events using Sp
 
 ## Usage
 
-Simply run the game-day executable from bin to get started.
+Type `game-day` in terminal and follow the prompts.
 
 ## Development
 
