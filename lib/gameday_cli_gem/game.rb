@@ -37,6 +37,13 @@ class GamedayCliGem::Game
          game.attribute("data-league").text.upcase,
          game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, "")
          )
+    elsif game.at_css(".status-active")  #selects for games which are active
+        self.new(
+          game.css("div.media-body")[0].css("span").text,
+          game.css("div.media-body")[1].css("span").text,
+          game.attribute("data-league").text.upcase,
+          game.css(".status-active").text.gsub(/\s+/, "").split("|").join("| ")
+          )
      elsif game.at_css(".status-final") #selects for any other completed games with no recap/preview or start time
         self.new(
           game.css("div.media-body")[0].css("span").text,
