@@ -13,46 +13,15 @@ class GamedayCliGem::Game
     self.class.all << self unless self.class.all.include?(self)
   end
 
-  def self.new_from_index_page(game) # Instantiates game objects from XML code passed by Scraper class. Conditionals determine initialize params
-    if game.css(".game-link").text == "Preview"  #selects for upcoming games with previews
-      self.new(
-        game.css("div.media-body")[0].css("span").text,
-        game.css("div.media-body")[1].css("span").text,
-        game.attribute("data-league").text.upcase,
-        game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, ""),
-         "http://www.si.com#{game.css(".game-link").attribute("href").text}"
-        )
-    elsif game.css(".game-link").text.include?("Recap")  #selects for games with recap, which must be finished
-      self.new(
-        game.css("div.media-body")[0].css("span").text,
-        game.css("div.media-body")[1].css("span").text,
-        game.attribute("data-league").text.upcase,
-        "FIN",
-        "http://www.si.com#{game.css(".game-link").attribute("href").text}"
-        )
-    elsif game.at_css(".status-pregame")  #selects for games with a visible start time
-       self.new(
-         game.css("div.media-body")[0].css("span").text,
-         game.css("div.media-body")[1].css("span").text,
-         game.attribute("data-league").text.upcase,
-         game.css(".status-pregame").text.gsub(" ", "").gsub(/\n/, "")
-         )
-    elsif game.at_css(".status-active")  #selects for games which are active
-        self.new(
-          game.css("div.media-body")[0].css("span").text,
-          game.css("div.media-body")[1].css("span").text,
-          game.attribute("data-league").text.upcase,
-          game.css(".status-active").text.gsub(/\s+/, "").split("|").join("| ")
-          )
-     elsif game.at_css(".status-final") #selects for any other completed games with no recap/preview or start time
-        self.new(
-          game.css("div.media-body")[0].css("span").text,
-          game.css("div.media-body")[1].css("span").text,
-          game.attribute("data-league").text.upcase,
-          "FIN"
-          )
-        end
-    end
+  # def self.new_from_index_page(game) # Instantiates game objects from XML code passed by Scraper class. Conditionals determine initialize params
+  #
+  #   end
+
+  def self.find_by_league(league)
+    #go through all games, select games where @league = given league
+    self.all.select {|game| game.league == league }
+
+  end
 
   def self.all
     @@all

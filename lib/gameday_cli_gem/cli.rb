@@ -6,13 +6,13 @@ class GamedayCliGem::CLI
    end
 
   def list_games
-      GamedayCliGem::Game.all.each_with_index do |game, index|
+      GamedayCliGem::Game.all.each.with_index(1) do |game, index|
         if !game.news_url.nil?
-          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - #{game.start_time} - News Available"
-        elsif game.start_time.length < 1
-          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - ONGOING "
+          puts "#{index}. | #{game.league} | #{game.team1} vs. #{game.team2} - #{game.start_time} - News Available"
+        elsif game.start_time.length < 1  #Might be uneccessary, check if this procs during an ongoing game
+          puts "#{index}. | #{game.league} | #{game.team1} vs. #{game.team2} - ONGOING "
         else
-          puts "#{index+1}. | #{game.league} | #{game.team1} vs. #{game.team2} - #{game.start_time} "
+          puts "#{index}. | #{game.league} | #{game.team1} vs. #{game.team2} - #{game.start_time} "
         end
     end
   end
