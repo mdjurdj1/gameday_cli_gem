@@ -20,7 +20,6 @@ class GamedayCliGem::Game
   def self.find_by_league(league)
     #go through all games, select games where @league = given league
     self.all.select {|game| game.league == league }
-
   end
 
   def self.all
