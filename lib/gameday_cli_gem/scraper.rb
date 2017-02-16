@@ -10,7 +10,7 @@ class GamedayCliGem::Scraper
       self.get_page.css("div.game")
   end
 
-  def make_games
+  def make_games  #creates game instances from the scraped XML based on selector availability
      scrape_games_index.each do |game|
        if game.css(".game-link").text == "Preview"  #selects for upcoming games with previews
         GamedayCliGem::Game.new(
